@@ -15,7 +15,7 @@ export default class DetailsScreen extends Component {
     this.state = {
       details: {},
       imagePath: "",
-      url: `https://3bfe-2405-201-8008-e095-81e4-f23f-8a41-87ec.ngrok.io/planet?name=${this.props.navigation.getParam(
+      url: `https://2431-2405-201-8008-e095-a413-c282-beb3-6a86.ngrok.io/planet?name=${this.props.navigation.getParam(
         "planet_name"
       )}`,
     };
@@ -68,7 +68,7 @@ export default class DetailsScreen extends Component {
       return (
         <View style={styles.container}>
           <ImageBackground
-            source={require("../assets/space_game.png")}
+            source={require("../assets/bg.png")}
             style={{ flex: 1, paddingTop: 20 }}
           >
             <Image
@@ -139,10 +139,12 @@ const styles = StyleSheet.create({
     marginBottom: 40,
     width: "80%",
     alignSelf: "center",
+    fontFamily:"monospace"
   },
   planetData: {
     fontSize: 15,
     color: "white",
-    textAlign:"center"
+    textAlign:"center",
+    fontFamily:"monospace"
   },
 });

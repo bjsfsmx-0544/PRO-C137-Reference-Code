@@ -13,29 +13,18 @@ import {
   Image,
 } from "react-native";
 import axios from "axios";
-import AppLoading from 'expo-app-loading';
-import * as Font from 'expo-font';
 
-let customFonts = {
-  'comic-sans': "https://rsms.me/inter/font-files/Inter-SemiBoldItalic.otf?v=3.12"
-};
 export default class HomeScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
       listData: [],
-      fontsLoaded: false,
       imagePath: "",
-      url: "https://3bfe-2405-201-8008-e095-81e4-f23f-8a41-87ec.ngrok.io",
+      url: "https://2431-2405-201-8008-e095-a413-c282-beb3-6a86.ngrok.io",
     };
-  }
-  async _loadFontsAsync() {
-    await Font.loadAsync(customFonts);
-    this.setState({ fontsLoaded: true });
   }
 
   componentDidMount() {
-    this._loadFontsAsync();
     this.getPlanets();
   }
 
@@ -52,6 +41,7 @@ export default class HomeScreen extends Component {
         Alert.alert(error.message);
       });
   };
+
   setDetails = (planetDetails) => {
     const planetType = planetDetails.planet_type;
     let imagePath = "";
@@ -77,6 +67,7 @@ export default class HomeScreen extends Component {
       imagePath: imagePath,
     });
   };
+
   renderItem = ({ item, index }) => {
     this.setDetails(item);
     return (
@@ -91,26 +82,11 @@ export default class HomeScreen extends Component {
       >
         <Image
           source={this.state.imagePath}
-          style={{
-            width: 100,
-            height: 100,
-            paddingTop: 5,
-            alignSelf: "center",
-            alignItems: "center",
-          }}
+          style={styles.cardImage}
         ></Image>
 
-        <View
-          style={{
-            marginTop: 10,
-            backgroundColor: "white",
-            borderRadius: 5,
-            width: "80%",
-            alignItems: "center",
-            alignSelf: "center",
-          }}
-        >
-          <Text style={[styles.title,{fontFamily: "comic-sans"}]}>{item.name}</Text>
+        <View style={styles.nameCardPlanet}>
+          <Text style={styles.title}>{item.name}</Text>
         </View>
       </TouchableOpacity>
     );
@@ -128,7 +104,7 @@ export default class HomeScreen extends Component {
   render() {
     const { listData } = this.state;
 
-    if (listData.length != 0 && this.state.fontsLoaded) {
+    if (listData.length != 0) {
       return (
         <View style={styles.container}>
           <SafeAreaView
@@ -138,7 +114,7 @@ export default class HomeScreen extends Component {
             }}
           />
           <ImageBackground
-            source={require("../assets/space_game.png")}
+            source={require("../assets/bg.png")}
             style={{ flex: 1, paddingTop: 20 }}
           >
             <View style={styles.upperContainer}>
@@ -157,7 +133,16 @@ export default class HomeScreen extends Component {
       );
     } else {
       return (
-        <AppLoading/>
+        <ImageBackground
+          source={require("../assets/bg.png")}
+          style={{ flex: 1, paddingTop: 20 }}
+        >
+          <View
+            style={{ alignItems: "center", justifyContent: "center", flex: 1 }}
+          >
+            <Text style={styles.headerText}>Loading...</Text>
+          </View>
+        </ImageBackground>
       );
     }
   }
@@ -176,7 +161,7 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     color: "white",
-    fontFamily:"comic-sans"
+    fontFamily: "monospace",
   },
   lowerContainer: {
     flex: 0.9,
@@ -188,14 +173,13 @@ const styles = StyleSheet.create({
   },
   emptyContainerText: {
     fontSize: 20,
-    fontFamily:"comic-sans"
   },
   title: {
     fontSize: 18,
     fontWeight: "bold",
     color: "black",
-    fontFamily:"comic-sans"
-    
+    fontFamily: "monospace",
+    textAlign: "center",
   },
   listContainer: {
     backgroundColor: "#eeecda",
@@ -209,4 +193,19 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: "white",
   },
+  cardImage:{
+    width: 100,
+    height: 100,
+    paddingTop: 5,
+    alignSelf: "center",
+    alignItems: "center",
+  },
+  nameCardPlanet:{
+    marginTop: 10,
+    backgroundColor: "white",
+    borderRadius: 5,
+    width: "80%",
+    alignItems: "center",
+    alignSelf: "center",
+  }
 });
