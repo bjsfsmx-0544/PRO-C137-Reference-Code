@@ -94,7 +94,7 @@ export default class DetailsScreen extends Component {
                 >{`Gravedad: ${details.gravity}`}</Text>
                 <Text
                   style={styles.planetData}
-                >{`Periodo orbital: ${details.orbital_period}`}</Text>
+                >{`Período orbital: ${details.orbital_period}`}</Text>
                 <Text
                   style={styles.planetData}
                 >{`Velocidad orbital: ${details.orbital_speed.toFixed(8)}`}</Text>
