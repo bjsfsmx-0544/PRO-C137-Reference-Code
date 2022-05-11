@@ -94,7 +94,7 @@ export default class HomeScreen extends Component {
 
   keyExtractor = (item, index) => index.toString();
 
-  /*this function selects a color for the cards on the flatlist*/
+  /* Esta función selecciona el color de las carta en la FlatList*/
   selectColor = (index) => {
     var color = ["#fbffd5", "#ffefff", "#ede5ff", "#eafff4"];
     var num = index % 4;
@@ -118,7 +118,7 @@ export default class HomeScreen extends Component {
             style={{ flex: 1, paddingTop: 20 }}
           >
             <View style={styles.upperContainer}>
-              <Text style={styles.headerText}>Planets World</Text>
+              <Text style={styles.headerText}>Mundo de planetas</Text>
             </View>
             <View style={styles.lowerContainer}>
               <FlatList
@@ -140,7 +140,7 @@ export default class HomeScreen extends Component {
           <View
             style={{ alignItems: "center", justifyContent: "center", flex: 1 }}
           >
-            <Text style={styles.headerText}>Loading...</Text>
+            <Text style={styles.headerText}>Cargando...</Text>
           </View>
         </ImageBackground>
       );
