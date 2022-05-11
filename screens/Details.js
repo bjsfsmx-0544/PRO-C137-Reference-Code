@@ -85,31 +85,31 @@ export default class DetailsScreen extends Component {
               <View style={{ alignSelf: "center" }}>
                 <Text
                   style={styles.planetData}
-                >{`Distance from Earth : ${details.distance_from_earth}`}</Text>
+                >{`Distancia a la tierra: ${details.distance_from_earth}`}</Text>
                 <Text
                   style={styles.planetData}
-                >{`Distance from Sun : ${details.distance_from_their_sun}`}</Text>
+                >{`Distancia al sol: ${details.distance_from_their_sun}`}</Text>
                 <Text
                   style={styles.planetData}
-                >{`Gravity : ${details.gravity}`}</Text>
+                >{`Gravedad: ${details.gravity}`}</Text>
                 <Text
                   style={styles.planetData}
-                >{`Orbital Period : ${details.orbital_period}`}</Text>
+                >{`Periodo orbital: ${details.orbital_period}`}</Text>
                 <Text
                   style={styles.planetData}
-                >{`Orbital Speed : ${details.orbital_speed.toFixed(8)}`}</Text>
+                >{`Velocidad orbital: ${details.orbital_speed.toFixed(8)}`}</Text>
                 <Text
                   style={styles.planetData}
-                >{`Planet Mass : ${details.planet_mass}`}</Text>
+                >{`Masa del planeta: ${details.planet_mass}`}</Text>
                 <Text
                   style={styles.planetData}
-                >{`Planet Radius : ${details.planet_radius}`}</Text>
+                >{`Radio del planeta: ${details.planet_radius}`}</Text>
                 <Text
                   style={styles.planetData}
-                >{`Planet Type : ${details.planet_type}`}</Text>
+                >{`Tipo de planeta: ${details.planet_type}`}</Text>
                 <View style={{ flexDirection: "row",alignSelf:"center" }}>
                   <Text style={styles.planetData}>
-                    {details.specifications ? `Specifications : ` : ""}
+                    {details.specifications ? `Especificaciones: ` : ""}
                   </Text>
                   {details.specifications.map((item, index) => (
                     <Text key={index.toString()} style={styles.planetData}>
